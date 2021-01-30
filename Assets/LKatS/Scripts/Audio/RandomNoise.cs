@@ -10,14 +10,11 @@ public class RandomNoise : MonoBehaviour
 {
     public AudioSource audioSource;
     public float volume = 0.5f;
-    public float waitTime = 6;
+    public float waitTimeMin = 15;
+    public float waitTimeMax = 25;
     public float radius = 10;
     public PlayerMovement player;
-    public AudioClip clip1;
-    public AudioClip clip2;
-    public AudioClip clip3;
-    public AudioClip clip4;
-    public AudioClip clip5;
+    public List<AudioClip> clips;
 
     private float waitTimeLeft = 0;
 
@@ -32,7 +29,7 @@ public class RandomNoise : MonoBehaviour
 
         if (waitTimeLeft <= 0) 
         {
-            waitTimeLeft = UnityEngine.Random.Range(Mathf.Round(waitTime - (waitTime/2)), Mathf.Round(waitTime + (waitTime / 2)));
+            waitTimeLeft = UnityEngine.Random.Range(waitTimeMin, waitTimeMax);
         }
 
         waitTimeLeft -= Time.deltaTime;
@@ -40,25 +37,7 @@ public class RandomNoise : MonoBehaviour
         if (waitTimeLeft <= 0)
         {
             changeLocation();
-
-            switch (UnityEngine.Random.Range(0, 4)) 
-            {
-                case 0:
-                    audioSource.PlayOneShot(clip1, volume);
-                break;
-                case 1:
-                    audioSource.PlayOneShot(clip2, volume); 
-                break;
-                case 2:
-                    audioSource.PlayOneShot(clip3, volume); 
-                break;
-                case 3: 
-                    audioSource.PlayOneShot(clip4, volume); 
-                break;
-                case 4: 
-                    audioSource.PlayOneShot(clip5, volume); 
-                break;
-            }
+            audioSource.PlayOneShot(clips[UnityEngine.Random.Range(0, clips.Count-1)], volume);
         }
     }
 
