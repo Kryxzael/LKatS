@@ -94,6 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8557101282896619502}
+  - component: {fileID: 5544547975959221385}
   m_Layer: 0
   m_Name: Adult
   m_TagString: Untagged
@@ -116,6 +117,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5544547975959221385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8557101282896619489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7882f152099bda141a685f2da1940902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentChunkMap: {fileID: 0}
+  storeGenerator: {fileID: 0}
+  NextNode: {fileID: 0}
+  PreviousNode: {fileID: 0}
+  Speed: 15
 --- !u!1001 &3434732676190788971
 PrefabInstance:
   m_ObjectHideFlags: 0

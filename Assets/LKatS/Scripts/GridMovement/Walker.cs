@@ -18,28 +18,15 @@ public class Walker : MonoBehaviour
 	{
 		storeGenerator = StoreGenerator.Singleton;
 	}
-
-	private void Start()
+	public void Setup(ChunkMap cm, Transform sp)
 	{
-		currentChunkMap = storeGenerator.GetChunkMapFromCoords(1, 1);
-		
-		NextNode = currentChunkMap.DirectionToBorder(0);
-
-		int i = 0;
-		while (NextNode == null)
-		{
-			i++;
-			NextNode = currentChunkMap.DirectionToBorder(i);
-			
-			if(i > 3)
-			{
-				Debug.LogError("Well this is awkward.");
-				return;
-			}
-		}
+		currentChunkMap = cm;
+		NextNode = sp;
 	}
+
 	private void Update()
 	{
+		if (NextNode == null|| currentChunkMap == null) return;
 		if( Vector3.Distance(transform.position,NextNode.position) < 1)
 		{
 			(ChunkMap,Transform) CT = currentChunkMap.GetNeighbour(NextNode, PreviousNode);

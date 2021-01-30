@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxStamina = 10.0f;
     public float stamina = 5.0f;
     public StaminaBar staminaBar;
+    public bool staminaRegeneration;
 
     private float xSpeed;
     private float zSpeed;
@@ -48,15 +49,15 @@ public class PlayerMovement : MonoBehaviour
         xSpeed *= walkSpeed;
         zSpeed *= walkSpeed;
 
-        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0 && (xSpeed != 0 || zSpeed != 0))
         {
             xSpeed *= 2;
             zSpeed *= 2;
-
-            if (xSpeed != 0 && zSpeed != 0) 
-            {
-                stamina -= Time.deltaTime;
-            }
+            stamina -= Time.deltaTime;
+        }
+        else if (staminaRegeneration) 
+        {
+            stamina += Time.deltaTime / 2;
         }
 
         body.velocity = new Vector3(xSpeed, body.velocity.y, zSpeed);
