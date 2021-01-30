@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 2.0f;
     public float maxStamina = 10.0f;
     public float stamina = 5.0f;
+    public StaminaBar staminaBar;
 
     private float xSpeed;
     private float zSpeed;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         body = this.GetComponent<Rigidbody>();
+        staminaBar.setMaxStamina(maxStamina);
     }
 
     // Update is called once per frame
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector3(xSpeed, body.velocity.y, zSpeed);
 
         stamina = Mathf.Clamp(stamina, 0, maxStamina);
+        staminaBar.setStamina(stamina);
     }
 
     public void gainStamina(float seconds) 
