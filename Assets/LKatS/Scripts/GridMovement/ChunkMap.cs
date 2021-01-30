@@ -159,6 +159,8 @@ public class ChunkMap : MonoBehaviour
     {
         foreach (var i in Paths)
         {
+            Gizmos.DrawWireSphere(i.One.position + (Vector3.up * 1f),4f);
+            Gizmos.DrawWireSphere(i.Two.position + (Vector3.up * 1f), 4f);
             Gizmos.DrawLine(i.One.position + (Vector3.up * 1f), i.Two.position + (Vector3.up * 1f));
         }
     }
