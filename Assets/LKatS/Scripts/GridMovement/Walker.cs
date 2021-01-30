@@ -10,6 +10,7 @@ public class Walker : MonoBehaviour
 
 	public StoreGenerator storeGenerator;
 	public Transform NextNode;
+	public Transform PreviousNode;
 
 	public float Speed;
 
@@ -41,7 +42,8 @@ public class Walker : MonoBehaviour
 	{
 		if( Vector3.Distance(transform.position,NextNode.position) < 1)
 		{
-			(ChunkMap,Transform) CT = currentChunkMap.GetNeighbour(NextNode);
+			(ChunkMap,Transform) CT = currentChunkMap.GetNeighbour(NextNode, PreviousNode);
+			PreviousNode = NextNode;
 			
 			currentChunkMap = CT.Item1;
 			NextNode = CT.Item2;
@@ -49,7 +51,8 @@ public class Walker : MonoBehaviour
 			{
 				Debug.LogWarning("shit");
 			}
-		} else
+		} 
+		else
 		{
 			MoveTowards();
 		}
@@ -59,7 +62,8 @@ public class Walker : MonoBehaviour
 	{
 		Vector3 newPos = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
 		Vector3 direction = newPos - transform.position;
-		transform.localRotation = Quaternion.LookRotation(direction,Vector3.up);
+
+		transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(direction.normalized, Vector3.up), 0.1f);
 		transform.position = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
 	}
 }

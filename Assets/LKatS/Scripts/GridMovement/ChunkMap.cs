@@ -30,18 +30,18 @@ public class ChunkMap : MonoBehaviour
         storeGenerator = StoreGenerator.Singleton;
     }
 
-	public (ChunkMap, Transform) GetNeighbour (Transform oldTransform)
+	public (ChunkMap, Transform) GetNeighbour(Transform currentTransform, Transform previousTransform)
 	{
 		RNG rand = new RNG();
 
-        List<Path> possiblePaths = Paths.Where(x => x.One == oldTransform || x.Two == oldTransform).ToList();
+        List<Path> possiblePaths = Paths.Where(x => x.One == currentTransform || x.Two == currentTransform).ToList();
 
-        if (borders.Contains(oldTransform))
+        if (borders.Contains(currentTransform))
 		{
             ChunkMap borderCM;
             Transform borderNode = null;
 
-            switch ((BorderToDirection(oldTransform)))
+            switch ((BorderToDirection(currentTransform)))
             {
                 case 0:
                     borderCM = storeGenerator.GetChunkMapFromCoords(WorldX, WorldZ + 1);
@@ -61,7 +61,7 @@ public class ChunkMap : MonoBehaviour
             }
             if( borderCM != null)
 			{
-                int direction = BorderToDirection(oldTransform);
+                int direction = BorderToDirection(currentTransform);
 
                 int cmBorderInt = ( (borderCM.Rotation +direction + 2)) % 4;
 
@@ -69,23 +69,25 @@ public class ChunkMap : MonoBehaviour
 
                 if (borderNode != null)
 				{
-                    possiblePaths.Add(new Path(oldTransform, borderNode));
+                    possiblePaths.Add(new Path(currentTransform, borderNode));
 
                 }
             }
-
-
-
-
 
             if (possiblePaths.Count < 1)
             {
                 Debug.LogError("Walker found no paths");
                 Debug.Break();
-                return (this, oldTransform);
+                return (this, currentTransform);
             }
+
+            if (possiblePaths.Count > 1)
+            {
+                possiblePaths.RemoveAll(i => i.One == previousTransform || i.Two == previousTransform);
+            }
+
             Path path = possiblePaths[rand.Next(possiblePaths.Count)];
-            Transform newTransform = path.One == oldTransform ? path.Two : path.One;
+            Transform newTransform = path.One == currentTransform ? path.Two : path.One;
 
             if (borderNode == newTransform)
             {
@@ -95,17 +97,23 @@ public class ChunkMap : MonoBehaviour
             {
                 return (this, newTransform);
             }
-        } else
+        } 
+        else
 		{
             
             if(possiblePaths.Count < 1)
 			{
                 Debug.LogError("Walker found no paths" + possiblePaths);
                 Debug.Break();
-                return (this, oldTransform);
+                return (this, currentTransform);
             }
+            if (possiblePaths.Count > 1)
+            {
+                possiblePaths.RemoveAll(i => i.One == previousTransform || i.Two == previousTransform);
+            }
+
             Path path = possiblePaths[rand.Next(possiblePaths.Count)];
-            Transform newTransform = path.One == oldTransform?path.Two:path.One;
+            Transform newTransform = path.One == currentTransform?path.Two:path.One;
 
             return (this, newTransform);
 		}
