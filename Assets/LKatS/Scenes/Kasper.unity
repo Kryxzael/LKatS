@@ -691,7 +691,7 @@ MonoBehaviour:
   StoreSize: {x: 10, y: 10}
   ChunkSize: {x: 50, y: 50}
   Seed: 1
-  UseRandomSeed: 0
+  UseRandomSeed: 1
 --- !u!4 &727377250
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   currentChunkMap: {fileID: 0}
   storeGenerator: {fileID: 0}
   NextNode: {fileID: 0}
+  PreviousNode: {fileID: 0}
   Speed: 50
 --- !u!1 &2077844977
 GameObject:

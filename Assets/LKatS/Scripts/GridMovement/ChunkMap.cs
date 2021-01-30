@@ -154,4 +154,12 @@ public class ChunkMap : MonoBehaviour
                 return null;
 		}
 	}
+
+    private void OnDrawGizmos()
+    {
+        foreach (var i in Paths)
+        {
+            Gizmos.DrawLine(i.One.position + (Vector3.up * 1f), i.Two.position + (Vector3.up * 1f));
+        }
+    }
 }
