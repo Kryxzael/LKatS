@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed = 2.0f;
 
     private float speed;
+    private float xSpeed;
+    private float zSpeed;
     private Rigidbody body;
     void Start()
     {
@@ -16,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        xSpeed = 0;
+        zSpeed = 0;
+
         speed = walkSpeed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -24,21 +29,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            body.velocity = transform.right * speed;
+            xSpeed += transform.right.x;
+            zSpeed += transform.right.z;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            body.velocity = -transform.right * speed;
+            xSpeed -= transform.right.x;
+            zSpeed -= transform.right.z;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            body.velocity = transform.forward * speed;
+            xSpeed += transform.forward.x;
+            zSpeed += transform.forward.z;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            body.velocity = -transform.forward * speed;
+            xSpeed -= transform.forward.x;
+            zSpeed -= transform.forward.z;
         }
 
-        body.velocity = new Vector3(body.velocity.x, 0, body.velocity.z);
+        body.velocity = new Vector3(xSpeed, 0, zSpeed) * speed;
     }
 }

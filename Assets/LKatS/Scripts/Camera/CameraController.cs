@@ -28,7 +28,13 @@ public class CameraController : MonoBehaviour
 
         pitch = Mathf.Clamp(pitch, -90, 90);
 
+        //Change angle of camera (x)
         transform.eulerAngles = new Vector3(pitch, transform.parent.transform.eulerAngles.y, 0.0f);
+
+        //Change angle of player (y)
         transform.parent.transform.eulerAngles = new Vector3(0, yaw, 0);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
