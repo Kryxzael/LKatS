@@ -9,6 +9,8 @@ using RNG = System.Random;
 
 public class StoreGenerator : MonoBehaviour
 {
+    public static StoreGenerator Singleton;
+
     public StoreChunk[] Chunks = new StoreChunk[0];
 
     public Vector2 StoreSize = new Vector2(10, 10);
@@ -16,9 +18,21 @@ public class StoreGenerator : MonoBehaviour
 
     public int Seed;
     public bool UseRandomSeed;
+    
+    private List<ChunkMap> chunkMaps = new List<ChunkMap>();
 
-    private void Start()
-    {
+	private void Awake()
+	{
+		if (Singleton != null)
+		{
+            Debug.LogWarning("Singleton already instantiated, destroyed extra StoreGenerator");
+            Destroy(this);
+		}
+		else
+		{
+            Singleton = this;
+		}
+
         if (UseRandomSeed)
             Seed = UnityEngine.Random.Range(0, int.MaxValue);
 
@@ -28,13 +42,26 @@ public class StoreGenerator : MonoBehaviour
         {
             for (int z = 0; z < StoreSize.y; z++)
             {
-                float rotation = rng.Next(4) * 90f;
+                rng.Next(4);
+                int rotationInt = 0;//rng.Next(4);
+                float rotation = rotationInt * 90f;
 
-                Instantiate(GetStoreChunk(rng), new Vector3(x * ChunkSize.x, 0f, z * ChunkSize.y), Quaternion.Euler(0f, rotation, 0f), transform);
+                ChunkMap newChunkMap = Instantiate(GetStoreChunk(rng), new Vector3(x * ChunkSize.x, 0f, z * ChunkSize.y), Quaternion.Euler(0f, rotation, 0f), transform).GetComponentInChildren<ChunkMap>();
+
+                newChunkMap.WorldX = x;
+                newChunkMap.WorldZ = z;
+                newChunkMap.Rotation = rotationInt;
+                chunkMaps.Add(newChunkMap);
+
             }
         }
+
     }
 
+    public ChunkMap GetChunkMapFromCoords(int x, int z)
+	{
+        return chunkMaps.SingleOrDefault(c => c.WorldX == x && c.WorldZ == z);
+	}
     private StoreChunk GetStoreChunk(RNG rng)
     {
         if (Chunks == null || !Chunks.Any() || Chunks.Sum(i => i.SpawnChance) == 0f)
