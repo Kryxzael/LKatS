@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float walkSpeed = 2.0f;
+    public float maxStamina = 10.0f;
+    public float stamina = 5.0f;
+    public StaminaBar staminaBar;
 
-    private float speed;
     private float xSpeed;
     private float zSpeed;
     private Rigidbody body;
     void Start()
     {
         body = this.GetComponent<Rigidbody>();
+        staminaBar.setMaxStamina(maxStamina);
     }
 
     // Update is called once per frame
@@ -20,12 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         xSpeed = 0;
         zSpeed = 0;
-
-        speed = walkSpeed;
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed *= 2;
-        }
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -48,6 +45,28 @@ public class PlayerMovement : MonoBehaviour
             zSpeed -= transform.forward.z;
         }
 
-        body.velocity = new Vector3(xSpeed, 0, zSpeed) * speed;
+        xSpeed *= walkSpeed;
+        zSpeed *= walkSpeed;
+
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+        {
+            xSpeed *= 2;
+            zSpeed *= 2;
+
+            if (xSpeed != 0 && zSpeed != 0) 
+            {
+                stamina -= Time.deltaTime;
+            }
+        }
+
+        body.velocity = new Vector3(xSpeed, body.velocity.y, zSpeed);
+
+        stamina = Mathf.Clamp(stamina, 0, maxStamina);
+        staminaBar.setStamina(stamina);
+    }
+
+    public void gainStamina(float seconds) 
+    {
+        stamina += seconds;
     }
 }
