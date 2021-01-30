@@ -47,7 +47,8 @@ MonoBehaviour:
   currentChunkMap: {fileID: 0}
   storeGenerator: {fileID: 0}
   NextNode: {fileID: 0}
-  Speed: 0
+  PreviousNode: {fileID: 0}
+  Speed: 20
 --- !u!1 &7426957621258746493
 GameObject:
   m_ObjectHideFlags: 0

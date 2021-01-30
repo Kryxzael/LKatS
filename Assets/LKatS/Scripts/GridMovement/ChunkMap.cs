@@ -76,7 +76,7 @@ public class ChunkMap : MonoBehaviour
 
             if (possiblePaths.Count < 1)
             {
-                Debug.LogError("Walker found no paths");
+                Debug.LogError("Walker found no paths", currentTransform);
                 Debug.Break();
                 return (this, currentTransform);
             }
