@@ -62,8 +62,8 @@ public class ChunkMap : MonoBehaviour
             if( borderCM != null)
 			{
                 int direction = BorderToDirection(oldTransform);
-                int borderCMRotation = borderCM.Rotation;
-                int cmBorderInt = direction + 2 % 4;
+
+                int cmBorderInt = ( (borderCM.Rotation +direction + 2)) % 4;
 
                 borderNode = borderCM.DirectionToBorder(cmBorderInt);
 
