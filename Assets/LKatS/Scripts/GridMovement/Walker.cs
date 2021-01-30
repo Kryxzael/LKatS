@@ -57,6 +57,9 @@ public class Walker : MonoBehaviour
 
 	private void MoveTowards()
 	{
+		Vector3 newPos = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
+		Vector3 direction = newPos - transform.position;
+		transform.localRotation = Quaternion.LookRotation(direction,Vector3.up);
 		transform.position = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
 	}
 }
