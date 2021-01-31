@@ -5,9 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class KillPlayerOnImpact : MonoBehaviour
 {
+	public bool checkHeight;
+	public float height;
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.tag== "Player")
+		//Debug.Log(this.transform.position.y);
+		if (other.tag== "Player" && ((this.transform.position.y < height && checkHeight)|| !checkHeight))
 		{
 			Debug.Log("Player died");
 		}
