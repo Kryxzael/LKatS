@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class Walker : MonoBehaviour
 	public Transform PreviousNode;
 
 	public float Speed;
+	private float MadSpeedMultiplier = 2f;
+	public float MadCooldownSeconds = 5f;
+	public bool IsMad;
 
 	private void Awake()
 	{
@@ -47,10 +51,21 @@ public class Walker : MonoBehaviour
 
 	private void MoveTowards()
 	{
-		Vector3 newPos = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
+		Vector3 newPos = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime * (IsMad ? MadSpeedMultiplier : 1f));
 		Vector3 direction = newPos - transform.position;
 
 		transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.LookRotation(direction.normalized, Vector3.up), 0.1f);
-		transform.position = Vector3.MoveTowards(transform.position, NextNode.position, Speed * Time.deltaTime);
+		transform.position = newPos;
 	}
+
+    public void GetMad()
+    {
+		IsMad = true;
+		Invoke(nameof(StopBeingMad), MadCooldownSeconds);
+    }
+
+    private void StopBeingMad()
+    {
+		IsMad = false;
+    }
 }

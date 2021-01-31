@@ -37,6 +37,12 @@ public class CallMom : MonoBehaviour
             _audio.clip = Clips[UnityEngine.Random.Range(0, Clips.Count)];
             _audio.Play();
 
+            //Find all walkers
+            foreach (Walker i in FindObjectsOfType<Walker>())
+            {
+                i.GetMad();
+            }
+
             yield return new WaitForSeconds(SecondsCooldown);
             FindObjectOfType<Mom>().Response.clip = ResponseClips[UnityEngine.Random.Range(0, ResponseClips.Count)];
             FindObjectOfType<Mom>().Response.Play();

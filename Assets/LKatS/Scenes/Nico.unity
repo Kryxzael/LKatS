@@ -517,8 +517,8 @@ MonoBehaviour:
   - {fileID: 888579466747465135, guid: 55d6e856fc24d8a42aa3bd6639a77663, type: 3}
   StoreSize: {x: 15, y: 15}
   ChunkSize: {x: 50, y: 50}
-  Seed: 2
-  UseRandomSeed: 1
+  Seed: 750071505
+  UseRandomSeed: 0
   ShoppingCartCount: 10
   AdultCount: 14
   ChocolateCount: 35
