@@ -146,6 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4593268383613331235}
   - component: {fileID: 6803235242823354295}
+  - component: {fileID: 2505314826848674989}
   m_Layer: 0
   m_Name: Mom
   m_TagString: Untagged
@@ -182,6 +183,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Response: {fileID: 1533677187}
+--- !u!135 &2505314826848674989
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4593268383613331244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 11.34
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6345326113461156966
 GameObject:
   m_ObjectHideFlags: 0
