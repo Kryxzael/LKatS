@@ -15,8 +15,7 @@ public class MenuNavigator : MonoBehaviour
 
     public void HandlePlayButton()
     {
-        Debug.LogError("Not Yet Implemented");
-        Debug.Break();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nico");
     }
 
     public void HandleQuitButton()

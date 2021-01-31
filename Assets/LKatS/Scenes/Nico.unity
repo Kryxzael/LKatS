@@ -420,13 +420,13 @@ MonoBehaviour:
   - {fileID: 4815495163663160512, guid: f11093f0611b4f04583803118d9df8f0, type: 3}
   - {fileID: 4206050156213346082, guid: 0bdf99bd3dee0814b89655f370305292, type: 3}
   - {fileID: 888579466747465135, guid: 55d6e856fc24d8a42aa3bd6639a77663, type: 3}
-  StoreSize: {x: 10, y: 10}
+  StoreSize: {x: 15, y: 15}
   ChunkSize: {x: 50, y: 50}
   Seed: 2
-  UseRandomSeed: 0
-  ShoppingCartCount: 5
-  AdultCount: 10
-  ChocolateCount: 25
+  UseRandomSeed: 1
+  ShoppingCartCount: 10
+  AdultCount: 14
+  ChocolateCount: 35
   ShoppingcartPrefab: {fileID: 126702545729920549, guid: e330a68853f841b4d87a1ea01c729b14, type: 3}
   AdultPrefab: {fileID: 8557101282896619489, guid: da075b2cf3d070b48aa4a026b8dc7aeb, type: 3}
   MomPrefab: {fileID: 4593268383613331244, guid: e65637983ade3bc4181964d9e0db7461, type: 3}
