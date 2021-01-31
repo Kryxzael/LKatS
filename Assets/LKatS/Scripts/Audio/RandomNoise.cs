@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.WSA;
 
 public class RandomNoise : MonoBehaviour
 {
