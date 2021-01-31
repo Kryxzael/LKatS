@@ -13,6 +13,7 @@ public class CallMom : MonoBehaviour
 
 
     public List<AudioClip> Clips;
+    public List<AudioClip> ResponseClips;
     public float SecondsCooldown = 2f;
 
     private void Awake()
@@ -37,6 +38,7 @@ public class CallMom : MonoBehaviour
             _audio.Play();
 
             yield return new WaitForSeconds(SecondsCooldown);
+            FindObjectOfType<Mom>().Response.clip = ResponseClips[UnityEngine.Random.Range(0, ResponseClips.Count)];
             FindObjectOfType<Mom>().Response.Play();
 
             isCalling = false;
