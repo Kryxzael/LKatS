@@ -6,10 +6,9 @@ public class CandyBar : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player") 
+        if (other.GetComponent<PlayerMovement>() is PlayerMovement player && player.stamina < player.maxStamina) 
         {
-            PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
-            player.gainStamina(5f);
+            player.gainStamina(player.maxStamina);
 
             Destroy(this.gameObject);
         }

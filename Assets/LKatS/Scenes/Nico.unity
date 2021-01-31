@@ -366,9 +366,11 @@ MonoBehaviour:
   UseRandomSeed: 0
   ShoppingCartCount: 5
   AdultCount: 10
+  ChocolateCount: 15
   ShoppingcartPrefab: {fileID: 126702545729920549, guid: e330a68853f841b4d87a1ea01c729b14, type: 3}
   AdultPrefab: {fileID: 8557101282896619489, guid: da075b2cf3d070b48aa4a026b8dc7aeb, type: 3}
   MomPrefab: {fileID: 4593268383613331244, guid: e65637983ade3bc4181964d9e0db7461, type: 3}
+  ChocolatePrefab: {fileID: 0}
 --- !u!4 &727377250
 Transform:
   m_ObjectHideFlags: 0

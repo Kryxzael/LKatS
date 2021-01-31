@@ -21,9 +21,9 @@ public class StoreGenerator : MonoBehaviour
 
 	private List<ChunkMap> chunkMaps = new List<ChunkMap>();
 
-	public int ShoppingCartCount, AdultCount;
+	public int ShoppingCartCount, AdultCount, ChocolateCount;
 
-	public GameObject ShoppingcartPrefab, AdultPrefab, MomPrefab;
+	public GameObject ShoppingcartPrefab, AdultPrefab, MomPrefab, ChocolatePrefab;
 
 	private void Awake()
 	{
@@ -82,6 +82,12 @@ public class StoreGenerator : MonoBehaviour
 			Walker w = Instantiate(AdultPrefab, sp.position, Quaternion.identity).GetComponent<Walker>();
 
 			w.Setup(cm, sp);
+		}
+
+		//Spawn chocolate
+		for (int i = 0; i < ChocolateCount; i++)
+		{
+			Instantiate(ChocolatePrefab, getTransformInChunk(rng.Next((int)StoreSize.x), rng.Next((int)StoreSize.y)).Item2.transform.position + Vector3.up * 5f, Quaternion.identity);
 		}
 
 		//Spawn mom
