@@ -48,7 +48,7 @@ public class StoreGenerator : MonoBehaviour
 			{
 				//rng.Next(4);
 				int rotationInt = rng.Next(4);
-				float rotation = rotationInt * 90f;
+				float rotation = rotationInt = 0; // * 90f;
 
 				ChunkMap newChunkMap = Instantiate(GetStoreChunk(rng), new Vector3(x * ChunkSize.x, 0f, z * ChunkSize.y), Quaternion.Euler(0f, rotation, 0f), transform).GetComponentInChildren<ChunkMap>();
 
