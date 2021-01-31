@@ -8,6 +8,11 @@ using UnityEngine;
 
 public class MenuNavigator : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void HandlePlayButton()
     {
         Debug.LogError("Not Yet Implemented");

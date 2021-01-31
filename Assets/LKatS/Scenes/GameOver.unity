@@ -367,6 +367,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -56.419
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 712684d22d774e4409eb0a631e8b0cf7, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 0cf5c81e7a8dd784b975302a41d56be9, type: 3}
     - target: {fileID: 919132149155446097, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
       propertyPath: m_Name
       value: LeftLeg
@@ -965,6 +973,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -56.419
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 712684d22d774e4409eb0a631e8b0cf7, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 0cf5c81e7a8dd784b975302a41d56be9, type: 3}
     - target: {fileID: 919132149155446097, guid: 4a25a85fae0e3ab49979647dea93504f, type: 3}
       propertyPath: m_Name
       value: RightLeg
@@ -1074,7 +1090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983840091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.2, y: -2.0833778, z: 5.38}
+  m_LocalPosition: {x: 8.56, y: -2.0833778, z: 4.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1964608555}
