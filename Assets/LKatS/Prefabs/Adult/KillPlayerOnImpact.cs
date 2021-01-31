@@ -12,7 +12,7 @@ public class KillPlayerOnImpact : MonoBehaviour
 		//Debug.Log(this.transform.position.y);
 		if (other.tag== "Player" && ((this.transform.position.y < height && checkHeight)|| !checkHeight))
 		{
-			Debug.Log("Player died");
+			UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
 		}
 	}
 }
