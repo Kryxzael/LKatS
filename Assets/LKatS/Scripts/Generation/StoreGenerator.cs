@@ -23,7 +23,7 @@ public class StoreGenerator : MonoBehaviour
 
 	public int ShoppingCartCount, AdultCount;
 
-	public GameObject ShoppingcartPrefab, AdultPrefab;
+	public GameObject ShoppingcartPrefab, AdultPrefab, MomPrefab;
 
 	private void Awake()
 	{
@@ -73,6 +73,7 @@ public class StoreGenerator : MonoBehaviour
 
 		}
 
+		//Spawn adults
 		for (int i = 0; i < AdultCount; i++)
 		{
 
@@ -82,6 +83,9 @@ public class StoreGenerator : MonoBehaviour
 
 			w.Setup(cm, sp);
 		}
+
+		//Spawn mom
+		Instantiate(MomPrefab, getTransformInChunk(rng.Next((int)StoreSize.x), rng.Next((int)StoreSize.y)).Item2.transform.position, Quaternion.identity);
 
 		(ChunkMap, Transform) getTransformInChunk(int x, int y)
 		{
