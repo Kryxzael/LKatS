@@ -226,6 +226,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 26.608002
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8029
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.8029
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8029
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 239
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833419286152729, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 94
+      objectReference: {fileID: 0}
     - target: {fileID: 238833419703081222, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -234,9 +274,29 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 238833419703081222, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.17181396
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833420130380655, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_Value
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 238833420300086634, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
       propertyPath: m_Name
       value: StaminaBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833420300086636, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833420300086636, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 238833420300086636, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 238833420300086638, guid: caa39466e792a9e4b890cb4c0f6ced8b, type: 3}
       propertyPath: m_Pivot.x
@@ -366,11 +426,11 @@ MonoBehaviour:
   UseRandomSeed: 0
   ShoppingCartCount: 5
   AdultCount: 10
-  ChocolateCount: 15
+  ChocolateCount: 25
   ShoppingcartPrefab: {fileID: 126702545729920549, guid: e330a68853f841b4d87a1ea01c729b14, type: 3}
   AdultPrefab: {fileID: 8557101282896619489, guid: da075b2cf3d070b48aa4a026b8dc7aeb, type: 3}
   MomPrefab: {fileID: 4593268383613331244, guid: e65637983ade3bc4181964d9e0db7461, type: 3}
-  ChocolatePrefab: {fileID: 0}
+  ChocolatePrefab: {fileID: 4793349509754197453, guid: aef16e7df461f58408feefc0bf29fd27, type: 3}
 --- !u!4 &727377250
 Transform:
   m_ObjectHideFlags: 0
@@ -737,9 +797,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6778601574989512425, guid: 0f3597b1f17034a488efe0d36742eabd, type: 3}
+      propertyPath: stamina
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778601574989512425, guid: 0f3597b1f17034a488efe0d36742eabd, type: 3}
+      propertyPath: maxStamina
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778601574989512425, guid: 0f3597b1f17034a488efe0d36742eabd, type: 3}
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1362699000}
+    - target: {fileID: 6778601574989512425, guid: 0f3597b1f17034a488efe0d36742eabd, type: 3}
+      propertyPath: staminaRegeneration
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f3597b1f17034a488efe0d36742eabd, type: 3}
 --- !u!1 &2077844977
